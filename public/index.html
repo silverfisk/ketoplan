@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keto Planer – 4 veckor</title>
+  <meta name="description" content="Generera snygga 4‑veckors keto-matplaner med valbara preferenser. Glutenfritt som standard. Passar för GitHub Pages." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Utskrift */
+    @media print {
+      .no-print { display:none !important; }
+      .print-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+  <header class="no-print sticky top-0 z-10 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-xl sm:text-2xl font-bold tracking-tight">🥑 Keto Planer</h1>
+      <div class="text-sm text-slate-600">Glutenfritt · Mild mat · 12–14 h fasta</div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <!-- Intro -->
+    <section class="mb-6">
+      <div class="rounded-2xl bg-white shadow-sm border border-slate-200 p-5">
+        <p class="text-slate-700">Välj vad du vill äta (t.ex. kyckling, lax, ägg, halloumi). Klicka på <span class="font-semibold">Generera plan</span> för att få en komplett 4‑veckors meny med frukost, lunch och middag – anpassad för milda smaker, keto och glutenfritt. Planen stödjer 12–14 timmars dygnsfasta.</p>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="no-print grid md:grid-cols-3 gap-4 mb-6">
+      <div class="rounded-2xl bg-white shadow-sm border border-slate-200 p-5">
+        <h2 class="font-semibold mb-3">Protein & huvudval</h2>
+        <div class="grid grid-cols-2 gap-2 text-sm" id="pref-proteins">
+          <!-- checkboxes injected by JS -->
+        </div>
+        <div class="mt-3 text-xs text-slate-600">Tips: välj 4–6 favoriter för bäst variation.</div>
+      </div>
+
+      <div class="rounded-2xl bg-white shadow-sm border border-slate-200 p-5">
+        <h2 class="font-semibold mb-3">Stil & begränsningar</h2>
+        <div class="space-y-2 text-sm">
+          <label class="flex items-center gap-2"><input id="glutenFree" type="checkbox" class="accent-slate-900" checked disabled><span>Glutenfritt (alltid)</span></label>
+          <label class="flex items-center gap-2"><input id="mild" type="checkbox" class="accent-slate-900" checked><span>Milda smaker (ingen stark mat)</span></label>
+          <label class="flex items-center gap-2"><input id="noMushroom" type="checkbox" class="accent-slate-900" checked><span>Uteslut svamp</span></label>
+          <label class="flex items-center gap-2"><input id="allowDairy" type="checkbox" class="accent-slate-900" checked><span>Tillåt mejeri (smör, ost, grädde)</span></label>
+          <label class="flex items-center gap-2"><input id="cheatSushi" type="checkbox" class="accent-slate-900" checked><span>Planera 1 sushi‑kväll/vecka ("fusk")</span></label>
+          <label class="flex items-center gap-2"><input id="budgetBias" type="checkbox" class="accent-slate-900"><span>Prioritera budgetvänligt</span></label>
+        </div>
+        <div class="mt-3">
+          <label class="block text-sm font-medium mb-1" for="fasting">Fasta (mål):</label>
+          <select id="fasting" class="w-full rounded-xl border-slate-300 text-sm">
+            <option value="12">12 timmar</option>
+            <option value="13">13 timmar</option>
+            <option value="14" selected>14 timmar</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-white shadow-sm border border-slate-200 p-5 flex flex-col justify-between">
+        <div>
+          <h2 class="font-semibold mb-3">Åtgärder</h2>
+          <div class="flex flex-wrap gap-2">
+            <button id="btn-generate" class="px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800">Generera plan</button>
+            <button id="btn-print" class="px-4 py-2 rounded-xl border text-sm hover:bg-slate-100">Skriv ut</button>
+            <button id="btn-export" class="px-4 py-2 rounded-xl border text-sm hover:bg-slate-100">Exportera Markdown</button>
+          </div>
+        </div>
+        <p class="mt-4 text-xs text-slate-600">Obs: Planen är generell och ersätter inte medicinsk rådgivning. Anpassa portioner efter hunger och mål.</p>
+      </div>
+    </section>
+
+    <!-- Plan Output -->
+    <section id="plan" class="space-y-6">
+      <!-- weeks injected by JS -->
+    </section>
+
+    <!-- Recipes Catalogue -->
+    <section class="mt-10">
+      <h2 class="text-lg font-semibold mb-3">Recept (grund)</h2>
+      <p class="text-sm text-slate-600 mb-4">Enkla basrecept med milda smaker. Alla recept är <span class="font-medium">keto</span> och <span class="font-medium">glutenfria</span>. Klicka på rätter i planen för detaljer.</p>
+      <div id="recipes-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- recipe cards injected by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/50 p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full shadow-xl border border-slate-200">
+      <div class="flex items-center justify-between p-4 border-b">
+        <h3 id="modal-title" class="text-lg font-semibold">Recept</h3>
+        <button id="modal-close" class="text-slate-500 hover:text-slate-800">✕</button>
+      </div>
+      <div class="p-4 space-y-2 text-sm" id="modal-body"></div>
+      <div class="p-4 pt-0">
+        <button id="modal-print" class="px-4 py-2 rounded-xl border text-sm hover:bg-slate-50">Skriv ut recept</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---------- Data ----------
+    const PROTEINS = [
+      {key:'egg', label:'Ägg'},
+      {key:'bacon', label:'Bacon'},
+      {key:'chicken', label:'Kyckling'},
+      {key:'salmon', label:'Lax'},
+      {key:'whitefish', label:'Vit fisk (torsk/sej)'},
+      {key:'beef', label:'Nötkött (rostbiff/entrecôte)'},
+      {key:'pork', label:'Fläskkotlett'},
+      {key:'halloumi', label:'Halloumi'},
+      {key:'veg', label:'Vegetariskt'}
+    ];
+
+    // Helper tag builders
+    const t = (arr) => arr; // just for readability
+
+    // Recipes catalogue
+    // Fields: id, name, meal ('breakfast'|'lunch'|'dinner'), tags, carbs, cheap (boolean), ingredients[], steps[]
+    const RECIPES = [
+      // ---- Breakfasts ----
+      {id:'b1', meal:'breakfast', name:'English breakfast (keto)', tags:t(['egg','bacon','mild','keto','glutenfree']), carbs:6, cheap:true,
+        ingredients:['2 ägg','2 skivor bacon','1/2 avokado','1 tomat','1 msk smör','salt, peppar'],
+        steps:['Stek bacon knaprigt.','Stek äggen i smör.','Stek tomatskivor 1–2 min.','Servera med avokado.']},
+      {id:'b2', meal:'breakfast', name:'Äggröra med ost', tags:t(['egg','mild','keto','glutenfree']), carbs:3, cheap:true,
+        ingredients:['3 ägg','1 msk smör','30 g riven ost','salt, peppar'],
+        steps:['Smält smör på låg/medelvärme.','Vispa ägg, häll i pannan.','Rör tills krämigt, vik in ost.']},
+      {id:'b3', meal:'breakfast', name:'Omelett med zucchini', tags:t(['egg','veg','mild','keto','glutenfree']), carbs:4, cheap:true,
+        ingredients:['3 ägg','1/2 liten zucchini (tärnad)','1 msk smör','salt, peppar'],
+        steps:['Stek zucchini snabbt i smör.','Tillsätt vispade ägg.','Tillaga tills omeletten sätter sig.']},
+      {id:'b4', meal:'breakfast', name:'Ägg + avokado + ost', tags:t(['egg','mild','keto','glutenfree']), carbs:5, cheap:false,
+        ingredients:['2–3 ägg','1/2 avokado','30 g ost','salt, peppar'],
+        steps:['Koka eller stek ägg.','Servera med avokado och ost.']},
+
+      // ---- Lunches ----
+      {id:'l1', meal:'lunch', name:'Kycklingsallad med halloumikrutonger', tags:t(['chicken','halloumi','salad','mild','keto','glutenfree']), carbs:8, cheap:false,
+        ingredients:['150 g stekt kyckling','salladsmix','paprika, gurka','50 g halloumi','olivolja, citron'],
+        steps:['Tärna och stek halloumi gyllen.','Blanda sallad, grönsaker och kyckling.','Ringla olivolja + citron.']},
+      {id:'l2', meal:'lunch', name:'Rostbiff med blomkålspuré', tags:t(['beef','mild','keto','glutenfree']), carbs:6, cheap:false,
+        ingredients:['150 g rostbiff (stekt)','200 g blomkål','1 msk smör','1 msk grädde','salt, peppar'],
+        steps:['Koka blomkål mjuk, mixa med smör + grädde.','Stek skivor rostbiff, krydda milt.','Servera med liten sallad.']},
+      {id:'l3', meal:'lunch', name:'Laxsallad med ägg och dillmajonnäs', tags:t(['salmon','egg','salad','mild','keto','glutenfree']), carbs:5, cheap:false,
+        ingredients:['100 g kallrökt/gravad lax','2 ägg (kokta)','sallad, gurka','2 msk majonnäs','dill'],
+        steps:['Koka ägg.','Blanda sallad med gurka.','Toppa med lax, ägg och dillmajonnäs.']},
+      {id:'l4', meal:'lunch', name:'Rostbiffssallad med ost', tags:t(['beef','salad','mild','keto','glutenfree']), carbs:6, cheap:false,
+        ingredients:['rostbiff i skivor','sallad, gurka, paprika','osttärningar','olivolja'],
+        steps:['Skiva rostbiff tunt.','Blanda med grönsaker och ost.','Ringla olivolja.']},
+      {id:'l5', meal:'lunch', name:'Halloumisallad med bacon', tags:t(['halloumi','bacon','salad','mild','keto','glutenfree']), carbs:7, cheap:false,
+        ingredients:['50–100 g halloumi','2 skivor bacon','sallad, gurka','olivolja'],
+        steps:['Stek bacon och halloumi.','Blanda med sallad och ringla olivolja.']},
+
+      // ---- Dinners ----
+      {id:'d1', meal:'dinner', name:'Ugnslax med smör, citron & dill', tags:t(['salmon','mild','keto','glutenfree']), carbs:3, cheap:false,
+        ingredients:['200 g laxfilé','1 msk smör','citron, dill','zucchini/broccoli som tillbehör'],
+        steps:['Ugn 200°C.','Salta/peppra lax, lägg smör och dill ovanpå.','Baka 15–18 min.','Servera med smörstekt zucchini/broccoli.']},
+      {id:'d2', meal:'dinner', name:'Kycklinggryta med zucchini & grädde', tags:t(['chicken','mild','keto','glutenfree']), carbs:6, cheap:true,
+        ingredients:['250 g kycklingfilé','1 liten zucchini','1 dl grädde','1 msk smör','timjan, salt, peppar'],
+        steps:['Bryn kyckling i smör.','Tillsätt zucchini i bitar.','Häll på grädde, sjud 8–10 min.']},
+      {id:'d3', meal:'dinner', name:'Fläskkotlett med smörstekt kål', tags:t(['pork','mild','keto','glutenfree','cheap']), carbs:6, cheap:true,
+        ingredients:['1 fläskkotlett (200 g)','200 g vitkål','1 msk smör','salt, peppar'],
+        steps:['Stek kotlett i smör till fin yta.','Strimla och stek kål mjukt.','Servera tillsammans.']},
+      {id:'d4', meal:'dinner', name:'Rostbiff + blomkål/kålrot “potatis”', tags:t(['beef','mild','keto','glutenfree']), carbs:9, cheap:false,
+        ingredients:['200 g rostbiff','150 g blomkål','100 g kålrot','2 msk smör'],
+        steps:['Tärna blomkål + kålrot, stek i smör tills gyllen.','Stek rostbiff till önskad grad.']},
+      {id:'d5', meal:'dinner', name:'Vit fisk i ugn med citron', tags:t(['whitefish','mild','keto','glutenfree','cheap']), carbs:2, cheap:true,
+        ingredients:['200 g torsk/sej','1 msk smör','citron','broccoli'],
+        steps:['Ugn 200°C.','Salta/peppra, lägg smör på fisken.','Baka 12–15 min.','Servera med smörstekt broccoli.']},
+      {id:'d6', meal:'dinner', name:'Halloumi- och grönsakspanna', tags:t(['halloumi','veg','mild','keto','glutenfree']), carbs:8, cheap:true,
+        ingredients:['150 g halloumi','zucchini + paprika','1 msk smör/olja'],
+        steps:['Tärna halloumi och grönsaker.','Stek hett tills yta.','Smaka av med salt/peppar.']},
+
+      // ---- Optional “Cheat” (Sushi) ----
+      {id:'x1', meal:'dinner', name:'Sushi (restaurang – fusk)', tags:t(['sushi','cheat']), carbs:40, cheap:false,
+        ingredients:['Sashimi + 4–6 bitar sushi'],
+        steps:['Välj mer sashimi och färre risbitar.','Undvik söta såser.']},
+    ].map(r => ({...r, tags:[...(r.tags||[]),'glutenfree','keto','mild']}));
+
+    // ---------- UI Init ----------
+    const elProteins = document.getElementById('pref-proteins');
+    PROTEINS.forEach(p => {
+      const id = 'p_' + p.key;
+      const div = document.createElement('label');
+      div.className = 'flex items-center gap-2';
+      div.innerHTML = `<input type="checkbox" id="${id}" class="accent-slate-900" ${['egg','chicken','salmon','halloumi','bacon'].includes(p.key)?'checked':''}><span>${p.label}</span>`;
+      elProteins.appendChild(div);
+    });
+
+    const qs = (s) => document.querySelector(s);
+    const qsa = (s) => Array.from(document.querySelectorAll(s));
+
+    // ---------- Planner ----------
+    function getPrefs(){
+      const proteins = PROTEINS.filter(p => qs('#p_'+p.key).checked).map(p=>p.key);
+      return {
+        proteins,
+        mild: qs('#mild').checked,
+        noMushroom: qs('#noMushroom').checked,
+        allowDairy: qs('#allowDairy').checked,
+        cheatSushi: qs('#cheatSushi').checked,
+        budgetBias: qs('#budgetBias').checked,
+        fasting: Number(qs('#fasting').value)
+      };
+    }
+
+    function matchesPrefs(recipe, prefs){
+      // Exclude mushrooms (we have none by default)
+      if(!prefs.allowDairy && (recipe.ingredients.join(' ').toLowerCase().includes('ost') || recipe.ingredients.join(' ').toLowerCase().includes('gräd'))){
+        return false;
+      }
+      if(prefs.mild && recipe.tags.includes('spicy')) return false;
+      if(prefs.budgetBias && recipe.cheap === false) return false;
+      // Protein match: if any of selected proteins is present in tags OR vegetarian allowed
+      const proteinTags = recipe.tags.filter(t=>['egg','bacon','chicken','salmon','whitefish','beef','pork','halloumi','veg'].includes(t));
+      if(prefs.proteins.length){
+        const ok = proteinTags.some(t=>prefs.proteins.includes(t)) || (prefs.proteins.includes('veg') && proteinTags.includes('veg'));
+        return ok;
+      }
+      return true;
+    }
+
+    function pick(list, usedIds){
+      const candidates = list.filter(r=>!usedIds.has(r.id));
+      if(!candidates.length) { usedIds.clear(); return list[Math.floor(Math.random()*list.length)]; }
+      return candidates[Math.floor(Math.random()*candidates.length)];
+    }
+
+    function generatePlan(){
+      const prefs = getPrefs();
+      const breakfasts = RECIPES.filter(r=>r.meal==='breakfast' && matchesPrefs(r,prefs));
+      const lunches = RECIPES.filter(r=>r.meal==='lunch' && matchesPrefs(r,prefs));
+      let dinners = RECIPES.filter(r=>r.meal==='dinner' && matchesPrefs(r,prefs));
+      const sushi = RECIPES.find(r=>r.id==='x1');
+
+      if(prefs.cheatSushi) dinners = dinners.concat([sushi]);
+
+      // Build 4 weeks x 7 days
+      const weeks = [];
+      const usedB = new Set(), usedL = new Set(), usedD = new Set();
+      for(let w=0; w<4; w++){
+        const days = [];
+        for(let d=0; d<7; d++){
+          const b = pick(breakfasts, usedB); usedB.add(b.id);
+          const l = pick(lunches, usedL); usedL.add(l.id);
+          const dd = pick(dinners, usedD); usedD.add(dd.id);
+          days.push({b,l,d:dd});
+        }
+        weeks.push(days);
+      }
+
+      renderPlan(weeks, prefs);
+      renderRecipes();
+      window.scrollTo({top: document.getElementById('plan').offsetTop - 8, behavior:'smooth'});
+    }
+
+    function renderPlan(weeks, prefs){
+      const host = document.getElementById('plan');
+      host.innerHTML = '';
+      weeks.forEach((days, wi) => {
+        const card = document.createElement('div');
+        card.className = 'rounded-2xl bg-white shadow-sm border border-slate-200 overflow-hidden';
+        const header = document.createElement('div');
+        header.className = 'px-5 py-3 border-b flex items-center justify-between bg-slate-50';
+        header.innerHTML = `<div class="font-semibold">Vecka ${wi+1}</div><div class="text-sm text-slate-600">Fasta: ${prefs.fasting} h · Mild mat</div>`;
+        const body = document.createElement('div');
+        body.className = 'p-0';
+
+        const table = document.createElement('table');
+        table.className = 'w-full text-sm';
+        table.innerHTML = `<thead class="bg-slate-100 text-slate-700"><tr><th class="text-left p-3">Dag</th><th class="text-left p-3">Frukost (kl. 9)</th><th class="text-left p-3">Lunch (kl. 13)</th><th class="text-left p-3">Middag (kl. 18–19)</th></tr></thead><tbody></tbody>`;
+        const tbody = table.querySelector('tbody');
+
+        const dayNames = ['Mån','Tis','Ons','Tor','Fre','Lör','Sön'];
+        days.forEach((row, di) => {
+          const tr = document.createElement('tr');
+          tr.className = di % 2 ? 'bg-white' : 'bg-slate-50/50';
+          tr.innerHTML = `
+            <td class="p-3 font-medium">${dayNames[di]}</td>
+            <td class="p-3"><button class="underline decoration-dotted hover:no-underline" data-id="${row.b.id}">${row.b.name}</button></td>
+            <td class="p-3"><button class="underline decoration-dotted hover:no-underline" data-id="${row.l.id}">${row.l.name}</button></td>
+            <td class="p-3"><button class="underline decoration-dotted hover:no-underline" data-id="${row.d.id}">${row.d.name}</button></td>`;
+          tbody.appendChild(tr);
+        });
+
+        body.appendChild(table);
+        card.appendChild(header); card.appendChild(body);
+        host.appendChild(card);
+      });
+
+      // wire up modal links
+      qsa('#plan button[data-id]').forEach(btn => btn.addEventListener('click', () => openRecipe(btn.dataset.id)));
+    }
+
+    function recipeToHTML(r){
+      return `
+        <div class="text-xs text-slate-600">${r.meal==='breakfast' ? 'Frukost' : r.meal==='lunch' ? 'Lunch' : 'Middag'}</div>
+        <h4 class="text-base font-semibold">${r.name}</h4>
+        <div class="text-xs text-slate-600">Kolhydrater (≈): ${r.carbs} g/portion · ${r.cheap? 'Budgetvänlig' : 'Standard'}</div>
+        <div class="mt-2">
+          <div class="font-medium">Ingredienser</div>
+          <ul class="list-disc pl-5 text-sm">${r.ingredients.map(i=>`<li>${i}</li>`).join('')}</ul>
+        </div>
+        <div class="mt-2">
+          <div class="font-medium">Gör så här</div>
+          <ol class="list-decimal pl-5 text-sm">${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol>
+        </div>`;
+    }
+
+    function openRecipe(id){
+      const r = RECIPES.find(x=>x.id===id);
+      if(!r) return;
+      qs('#modal-title').textContent = r.name;
+      qs('#modal-body').innerHTML = recipeToHTML(r);
+      qs('#modal').classList.remove('hidden');
+      qs('#modal').classList.add('flex');
+    }
+
+    function closeModal(){
+      qs('#modal').classList.add('hidden');
+      qs('#modal').classList.remove('flex');
+    }
+
+    function renderRecipes(){
+      const host = document.getElementById('recipes-grid');
+      host.innerHTML = '';
+      RECIPES.forEach(r => {
+        const card = document.createElement('div');
+        card.className = 'rounded-2xl bg-white shadow-sm border border-slate-200 p-4 flex flex-col';
+        card.innerHTML = `
+          <div class="text-xs text-slate-600 mb-1">${r.meal==='breakfast' ? 'Frukost' : r.meal==='lunch' ? 'Lunch' : (r.tags.includes('cheat')?'Fusk':'Middag')}</div>
+          <h3 class="font-semibold">${r.name}</h3>
+          <div class="text-xs text-slate-600">Kolhydrater (≈): ${r.carbs} g · ${r.cheap? 'Budget' : 'Standard'}</div>
+          <div class="mt-2 flex-1 text-sm line-clamp-3">${r.ingredients.slice(0,3).join(', ')}...</div>
+          <div class="mt-3">
+            <button data-id="${r.id}" class="text-sm underline decoration-dotted">Visa recept</button>
+          </div>`;
+        host.appendChild(card);
+      });
+      qsa('#recipes-grid button[data-id]').forEach(btn => btn.addEventListener('click', () => openRecipe(btn.dataset.id)));
+    }
+
+    // Export Markdown
+    function exportMarkdown(){
+      const blocks = [];
+      const weeks = qsa('#plan > div');
+      weeks.forEach((w, i) => {
+        blocks.push(`## Vecka ${i+1}`);
+        const rows = w.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+          const tds = row.querySelectorAll('td');
+          blocks.push(`- **${tds[0].innerText}**: Frukost – ${tds[1].innerText}; Lunch – ${tds[2].innerText}; Middag – ${tds[3].innerText}`);
+        });
+      });
+      const blob = new Blob([`# 4‑veckors keto‑plan\n\n${blocks.join('\n')}`],{type:'text/markdown'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'keto-plan-4-veckor.md';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Events
+    document.getElementById('btn-generate').addEventListener('click', generatePlan);
+    document.getElementById('btn-print').addEventListener('click', () => window.print());
+    document.getElementById('btn-export').addEventListener('click', exportMarkdown);
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-print').addEventListener('click', () => window.print());
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+
+    // First render
+    renderRecipes();
+  </script>
+</body>
+</html>
+
