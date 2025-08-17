@@ -1,0 +1,892 @@
+{
+  "recipes": [
+    {
+      "id": "b1",
+      "meal": "breakfast",
+      "name": "English breakfast (keto)",
+      "tags": [
+        "egg",
+        "bacon",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 6,
+      "cheap": true,
+      "ingredients": [
+        "2 ägg",
+        "2 skivor bacon",
+        "1/2 avokado",
+        "1 tomat",
+        "1 msk smör",
+        "salt, peppar"
+      ],
+      "steps": [
+        "Stek bacon knaprigt.",
+        "Stek äggen i smör.",
+        "Stek tomatskivor 1–2 min.",
+        "Servera med avokado."
+      ],
+      "meta": {
+        "protein": "bacon/ägg",
+        "cuisine": "brittisk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 15,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "b2",
+      "meal": "breakfast",
+      "name": "Äggröra med ost",
+      "tags": [
+        "egg",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 3,
+      "cheap": true,
+      "ingredients": [
+        "3 ägg",
+        "1 msk smör",
+        "30 g riven ost",
+        "salt, peppar"
+      ],
+      "steps": [
+        "Smält smör på låg/medelvärme.",
+        "Vispa ägg, häll i pannan.",
+        "Rör tills krämigt, vik in ost."
+      ],
+      "meta": {
+        "protein": "ägg",
+        "cuisine": "svensk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 10,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "b3",
+      "meal": "breakfast",
+      "name": "Omelett med zucchini",
+      "tags": [
+        "egg",
+        "veg",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 4,
+      "cheap": true,
+      "ingredients": [
+        "3 ägg",
+        "1/2 liten zucchini (tärnad)",
+        "1 msk smör",
+        "salt, peppar"
+      ],
+      "steps": [
+        "Stek zucchini snabbt i smör.",
+        "Tillsätt vispade ägg.",
+        "Tillaga tills omeletten sätter sig."
+      ],
+      "meta": {
+        "protein": "ägg",
+        "cuisine": "svensk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 12,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "b4",
+      "meal": "breakfast",
+      "name": "Ägg + avokado + ost",
+      "tags": [
+        "egg",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 5,
+      "cheap": false,
+      "ingredients": [
+        "2–3 ägg",
+        "1/2 avokado",
+        "30 g ost",
+        "salt, peppar"
+      ],
+      "steps": [
+        "Koka eller stek ägg.",
+        "Servera med avokado och ost."
+      ],
+      "meta": {
+        "protein": "ägg",
+        "cuisine": "svensk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 10,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "standard",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "l1",
+      "meal": "lunch",
+      "name": "Kycklingsallad med halloumikrutonger",
+      "tags": [
+        "chicken",
+        "halloumi",
+        "salad",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 8,
+      "cheap": false,
+      "ingredients": [
+        "150 g stekt kyckling",
+        "salladsmix",
+        "paprika, gurka",
+        "50 g halloumi",
+        "olivolja, citron"
+      ],
+      "steps": [
+        "Tärna och stek halloumi gyllen.",
+        "Blanda sallad, grönsaker och kyckling.",
+        "Ringla olivolja + citron."
+      ],
+      "meta": {
+        "protein": "kyckling",
+        "cuisine": "medelhav",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 15,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "standard",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "l2",
+      "meal": "lunch",
+      "name": "Rostbiff med blomkålspuré",
+      "tags": [
+        "beef",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 6,
+      "cheap": false,
+      "ingredients": [
+        "150 g rostbiff (stekt)",
+        "200 g blomkål",
+        "1 msk smör",
+        "1 msk grädde",
+        "salt, peppar"
+      ],
+      "steps": [
+        "Koka blomkål mjuk, mixa med smör + grädde.",
+        "Stek skivor rostbiff, krydda milt.",
+        "Servera med liten sallad."
+      ],
+      "meta": {
+        "protein": "nötkött",
+        "cuisine": "svensk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 20,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "standard",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "l3",
+      "meal": "lunch",
+      "name": "Laxsallad med ägg och dillmajonnäs",
+      "tags": [
+        "salmon",
+        "egg",
+        "salad",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 5,
+      "cheap": false,
+      "ingredients": [
+        "100 g kallrökt/gravad lax",
+        "2 ägg (kokta)",
+        "sallad, gurka",
+        "2 msk majonnäs",
+        "dill"
+      ],
+      "steps": [
+        "Koka ägg.",
+        "Blanda sallad med gurka.",
+        "Toppa med lax, ägg och dillmajonnäs."
+      ],
+      "meta": {
+        "protein": "lax",
+        "cuisine": "nordisk",
+        "dairy_free": true,
+        "spicy": false,
+        "time_minutes": 12,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "standard",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "l4",
+      "meal": "lunch",
+      "name": "Rostbiffssallad med ost",
+      "tags": [
+        "beef",
+        "salad",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 6,
+      "cheap": false,
+      "ingredients": [
+        "rostbiff i skivor",
+        "sallad, gurka, paprika",
+        "osttärningar",
+        "olivolja"
+      ],
+      "steps": [
+        "Skiva rostbiff tunt.",
+        "Blanda med grönsaker och ost.",
+        "Ringla olivolja."
+      ],
+      "meta": {
+        "protein": "nötkött",
+        "cuisine": "svensk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 10,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "standard",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "l5",
+      "meal": "lunch",
+      "name": "Halloumisallad med bacon",
+      "tags": [
+        "halloumi",
+        "bacon",
+        "salad",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 7,
+      "cheap": false,
+      "ingredients": [
+        "50–100 g halloumi",
+        "2 skivor bacon",
+        "sallad, gurka",
+        "olivolja"
+      ],
+      "steps": [
+        "Stek bacon och halloumi.",
+        "Blanda med sallad och ringla olivolja."
+      ],
+      "meta": {
+        "protein": "halloumi/bacon",
+        "cuisine": "medelhav",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 12,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "standard",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "d1",
+      "meal": "dinner",
+      "name": "Ugnslax med smör, citron & dill",
+      "tags": [
+        "salmon",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 3,
+      "cheap": false,
+      "ingredients": [
+        "200 g laxfilé",
+        "1 msk smör",
+        "citron, dill",
+        "zucchini/broccoli som tillbehör"
+      ],
+      "steps": [
+        "Ugn 200°C.",
+        "Salta/peppra lax, lägg smör och dill ovanpå.",
+        "Baka 15–18 min.",
+        "Servera med smörstekt zucchini/broccoli."
+      ],
+      "meta": {
+        "protein": "lax",
+        "cuisine": "nordisk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 25,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "standard",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "d2",
+      "meal": "dinner",
+      "name": "Kycklinggryta med zucchini & grädde",
+      "tags": [
+        "chicken",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 6,
+      "cheap": true,
+      "ingredients": [
+        "250 g kycklingfilé",
+        "1 liten zucchini",
+        "1 dl grädde",
+        "1 msk smör",
+        "timjan, salt, peppar"
+      ],
+      "steps": [
+        "Bryn kyckling i smör.",
+        "Tillsätt zucchini i bitar.",
+        "Häll på grädde, sjud 8–10 min."
+      ],
+      "meta": {
+        "protein": "kyckling",
+        "cuisine": "svensk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 20,
+        "servings": 2,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "d3",
+      "meal": "dinner",
+      "name": "Fläskkotlett med smörstekt kål",
+      "tags": [
+        "pork",
+        "mild",
+        "keto",
+        "glutenfree",
+        "cheap"
+      ],
+      "carbs": 6,
+      "cheap": true,
+      "ingredients": [
+        "1 fläskkotlett (200 g)",
+        "200 g vitkål",
+        "1 msk smör",
+        "salt, peppar"
+      ],
+      "steps": [
+        "Stek kotlett i smör till fin yta.",
+        "Strimla och stek kål mjukt.",
+        "Servera tillsammans."
+      ],
+      "meta": {
+        "protein": "fläsk",
+        "cuisine": "svensk",
+        "dairy_free": true,
+        "spicy": false,
+        "time_minutes": 18,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "d4",
+      "meal": "dinner",
+      "name": "Rostbiff + blomkål/kålrot “potatis”",
+      "tags": [
+        "beef",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 9,
+      "cheap": false,
+      "ingredients": [
+        "200 g rostbiff",
+        "150 g blomkål",
+        "100 g kålrot",
+        "2 msk smör"
+      ],
+      "steps": [
+        "Tärna blomkål + kålrot, stek i smör tills gyllen.",
+        "Stek rostbiff till önskad grad."
+      ],
+      "meta": {
+        "protein": "nötkött",
+        "cuisine": "svensk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 25,
+        "servings": 1,
+        "skill_level": "medel",
+        "cost_level": "standard",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "d5",
+      "meal": "dinner",
+      "name": "Vit fisk i ugn med citron",
+      "tags": [
+        "whitefish",
+        "mild",
+        "keto",
+        "glutenfree",
+        "cheap"
+      ],
+      "carbs": 2,
+      "cheap": true,
+      "ingredients": [
+        "200 g torsk/sej",
+        "1 msk smör",
+        "citron",
+        "broccoli"
+      ],
+      "steps": [
+        "Ugn 200°C.",
+        "Salta/peppra, lägg smör på fisken.",
+        "Baka 12–15 min.",
+        "Servera med smörstekt broccoli."
+      ],
+      "meta": {
+        "protein": "vit fisk",
+        "cuisine": "nordisk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 20,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "d6",
+      "meal": "dinner",
+      "name": "Halloumi- och grönsakspanna",
+      "tags": [
+        "halloumi",
+        "veg",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 8,
+      "cheap": true,
+      "ingredients": [
+        "150 g halloumi",
+        "zucchini + paprika",
+        "1 msk smör/olja"
+      ],
+      "steps": [
+        "Tärna halloumi och grönsaker.",
+        "Stek hett tills yta.",
+        "Smaka av med salt/peppar."
+      ],
+      "meta": {
+        "protein": "halloumi",
+        "cuisine": "medelhav",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 15,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "x1",
+      "meal": "dinner",
+      "name": "Sushi (restaurang – fusk)",
+      "tags": [
+        "sushi",
+        "cheat",
+        "glutenfree",
+        "keto",
+        "mild"
+      ],
+      "carbs": 40,
+      "cheap": false,
+      "ingredients": [
+        "Sashimi + 4–6 bitar sushi"
+      ],
+      "steps": [
+        "Välj mer sashimi och färre risbitar.",
+        "Undvik söta såser."
+      ],
+      "meta": {
+        "protein": "fisk/skaldjur",
+        "cuisine": "japansk",
+        "dairy_free": true,
+        "spicy": false,
+        "time_minutes": 60,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "standard",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "n1",
+      "meal": "dinner",
+      "name": "Fiskgratäng med blomkålsmos",
+      "tags": [
+        "whitefish",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 5,
+      "cheap": false,
+      "ingredients": [
+        "300 g vit fisk",
+        "250 g blomkål",
+        "1 dl grädde",
+        "1 msk smör",
+        "dill, citron",
+        "salt, peppar"
+      ],
+      "steps": [
+        "Koka blomkål mjuk och mixa med smör + grädde.",
+        "Lägg fisken i smord form, salta/peppra och toppa med mos.",
+        "Baka 200°C i 18–20 min.",
+        "Servera med dill och citron."
+      ],
+      "meta": {
+        "protein": "vit fisk",
+        "cuisine": "nordisk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 30,
+        "servings": 2,
+        "skill_level": "enkel",
+        "cost_level": "standard",
+        "source_name": "Inspiration: ICA.se (fiskgratäng/blomkål)",
+        "source_url": "https://www.ica.se/recept/laxfile-i-ugn-med-citron-724126/"
+      }
+    },
+    {
+      "id": "n2",
+      "meal": "dinner",
+      "name": "Zucchininudlar (“zoodles”) med köttfärssås",
+      "tags": [
+        "beef",
+        "veg",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 7,
+      "cheap": true,
+      "ingredients": [
+        "250 g nötfärs",
+        "2 små zucchini (spiraliserade)",
+        "1 vitlöksklyfta",
+        "1 dl passerade tomater",
+        "1 msk smör/olja",
+        "salt, peppar, oregano"
+      ],
+      "steps": [
+        "Bryn färs med vitlök, tillsätt tomat och krydda.",
+        "Fräs zoodles hastigt i smör/olja 1–2 min.",
+        "Servera köttfärssås över zoodles."
+      ],
+      "meta": {
+        "protein": "nötkött",
+        "cuisine": "italiensk",
+        "dairy_free": true,
+        "spicy": false,
+        "time_minutes": 20,
+        "servings": 2,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "Allmänt low‑carb‑koncept",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "n3",
+      "meal": "lunch",
+      "name": "Burgare utan bröd med ost & sallad",
+      "tags": [
+        "beef",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 4,
+      "cheap": true,
+      "ingredients": [
+        "2 burgarbiffar (nötfärs)",
+        "ostskivor",
+        "sallad, tomat, gurka",
+        "majonnäs"
+      ],
+      "steps": [
+        "Stek biffar, lägg ost ovanpå att smälta.",
+        "Servera i salladsblad med grönsaker och majonnäs."
+      ],
+      "meta": {
+        "protein": "nötkött",
+        "cuisine": "amerikansk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 15,
+        "servings": 2,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "n4",
+      "meal": "lunch",
+      "name": "Tonfiskröra med selleristavar",
+      "tags": [
+        "fish",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 2,
+      "cheap": true,
+      "ingredients": [
+        "1 burk tonfisk i vatten/olja",
+        "2 msk majonnäs",
+        "1 tsk citronsaft",
+        "selleristavar",
+        "salt, peppar"
+      ],
+      "steps": [
+        "Blanda tonfisk med majonnäs och citron.",
+        "Servera med selleristavar."
+      ],
+      "meta": {
+        "protein": "tonfisk",
+        "cuisine": "nordisk",
+        "dairy_free": true,
+        "spicy": false,
+        "time_minutes": 5,
+        "servings": 1,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "n5",
+      "meal": "lunch",
+      "name": "Räksallad med avokado & ägg",
+      "tags": [
+        "seafood",
+        "egg",
+        "salad",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 4,
+      "cheap": false,
+      "ingredients": [
+        "150 g räkor (skalade)",
+        "1 avokado",
+        "2 kokta ägg",
+        "sallad, gurka",
+        "citron, majonnäs, dill"
+      ],
+      "steps": [
+        "Koka ägg och dela.",
+        "Blanda sallad och gurka.",
+        "Toppa med räkor, avokado, ägg och dillmajonnäs."
+      ],
+      "meta": {
+        "protein": "räkor",
+        "cuisine": "nordisk",
+        "dairy_free": true,
+        "spicy": false,
+        "time_minutes": 12,
+        "servings": 2,
+        "skill_level": "enkel",
+        "cost_level": "standard",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "n6",
+      "meal": "dinner",
+      "name": "Kycklinglår i ugn med timjan-smör",
+      "tags": [
+        "chicken",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 1,
+      "cheap": true,
+      "ingredients": [
+        "4 kycklinglår",
+        "50 g smör",
+        "timjan, salt, peppar",
+        "citronklyftor vid servering"
+      ],
+      "steps": [
+        "Rör smör med timjan, salt, peppar.",
+        "Gnid in kycklingen och baka 200°C i 30–35 min till 82°C.",
+        "Servera med grönsallad."
+      ],
+      "meta": {
+        "protein": "kyckling",
+        "cuisine": "svensk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 40,
+        "servings": 4,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "n7",
+      "meal": "breakfast",
+      "name": "Kesoplättar (keto‑vänliga)",
+      "tags": [
+        "egg",
+        "dairy",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 6,
+      "cheap": true,
+      "ingredients": [
+        "2 ägg",
+        "200 g naturell keso",
+        "1 msk fiberhusk",
+        "1 nypa salt",
+        "smör till stekning"
+      ],
+      "steps": [
+        "Mixa alla ingredienser och låt svälla 5 min.",
+        "Stek små plättar i smör på medelvärme."
+      ],
+      "meta": {
+        "protein": "ägg/mejeri",
+        "cuisine": "svensk",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 15,
+        "servings": 2,
+        "skill_level": "enkel",
+        "cost_level": "budget",
+        "source_name": "LCHF‑klassiker (allmän)",
+        "source_url": ""
+      }
+    },
+    {
+      "id": "n8",
+      "meal": "dinner",
+      "name": "Gräddig pesto‑kyckling i panna",
+      "tags": [
+        "chicken",
+        "mild",
+        "keto",
+        "glutenfree"
+      ],
+      "carbs": 5,
+      "cheap": false,
+      "ingredients": [
+        "500 g kycklingfilé",
+        "1 dl grädde",
+        "2 msk grön pesto",
+        "1 msk smör",
+        "zucchini som tillbehör"
+      ],
+      "steps": [
+        "Bryn kycklingbitar, sänk värmen.",
+        "Rör ner grädde och pesto, sjud 8–10 min.",
+        "Servera med smörstekt zucchini."
+      ],
+      "meta": {
+        "protein": "kyckling",
+        "cuisine": "medelhav",
+        "dairy_free": false,
+        "spicy": false,
+        "time_minutes": 20,
+        "servings": 3,
+        "skill_level": "enkel",
+        "cost_level": "standard",
+        "source_name": "intern",
+        "source_url": ""
+      }
+    }
+  ]
+}
